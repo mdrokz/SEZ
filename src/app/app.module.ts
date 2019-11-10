@@ -23,6 +23,11 @@ import {
   NbSidebarModule,
   NbToastrModule,
   NbWindowModule,
+  NbAlertModule,
+  NbInputModule,
+  NbCheckboxModule,
+  NbIconModule,
+  NbButtonModule
 } from '@nebular/theme';
 
 @NgModule({
@@ -40,6 +45,11 @@ import {
     AppRoutingModule,
     FormsModule,
     NgxElectronModule,
+    NbAlertModule,
+    NbInputModule,
+    NbCheckboxModule,
+    NbIconModule,
+    NbButtonModule,
 
     ThemeModule.forRoot(),
 

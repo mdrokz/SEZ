@@ -19,10 +19,6 @@ const routes: Routes = [
     path: 'dev'
   },
   {
-    component: LoginComponent,
-    path: 'login'
-  },
-  {
     component: RegisterComponent,
     path: 'register'
   },
@@ -37,11 +33,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: NbLoginComponent,
+        component: LoginComponent,
       },
       {
         path: 'login',
-        component: NbLoginComponent,
+        component: LoginComponent,
       },
       {
         path: 'register',
@@ -61,8 +57,8 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' }
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'auth/login' }
 ];
 
 

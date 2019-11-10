@@ -35,5 +35,13 @@ export class IpcService {
       this.electron.ipcRenderer.send("registerUser",data);
     });
   }
+  loginUser(data:any) {
+    return new Promise<any>((resolve,reject) => {
+      this.electron.ipcRenderer.once("loginUserResponse",(event,arg) => {
+        resolve(arg);
+      });
+      this.electron.ipcRenderer.send("loginUser",data);
+    });
+  }
 
 }

@@ -4,7 +4,7 @@ var Umongo = require('mongoose-unique-validator');
 
 
 var userSchema = new Schema({
-    email: {
+    username: {
         type: String
     },
     password: {
