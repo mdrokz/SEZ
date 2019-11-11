@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
-  
+
 import { app, BrowserWindow, ipcMain } from 'electron';
+const route = require('data-access/route');
 
 const mongoose = require('mongoose');
 
@@ -12,7 +13,7 @@ var userModel = require('./models/user.model');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win,serve;
+let win, serve;
 
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
@@ -25,26 +26,27 @@ mongoose.connect("mongodb://localhost:27017/test", {
 
 
 // ipc communication
-
-ipcMain.on("registerUser", (event, arg) => {
+ipcMain.on("api", (event, arg) => {
   console.log(arg);
-  var user = new userModel(arg);
-  user.save(function (err, product) {
-    if (err) {
-      win.webContents.send("registerUserResponse", {
-        error: err
-      });
-    } else {
-      win.webContents.send("registerUserResponse", {
-        status: 200
-      });
-    }
-  });
+
+  // var user = new userModel(arg);
+  // user.save(function (err, product) {
+  //   if (err) {
+  //     win.webContents.send("registerUserResponse", {
+  //       error: err
+  //     });
+  //   } else {
+  //     win.webContents.send("registerUserResponse", {
+  //       status: 200
+  //     });
+  //   }
+  // });
 
 });
 
-ipcMain.on("popup",(event,arg) => {
-  console.log(event,arg);
+
+ipcMain.on("popup", (event, arg) => {
+  console.log(event, arg);
 })
 
 
@@ -68,13 +70,13 @@ function createWindow() {
   //   })
   // );
   // and load the index.html of the app.
-  if(serve) {
+  if (serve) {
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/node_modules/electron`)
     });
     win.loadURL('http://localhost:4200');
   } else {
-  win.loadFile('./dist/electron-poc/index.html');
+    win.loadFile('./dist/electron-poc/index.html');
   }
   // Open the DevTools.
   win.webContents.openDevTools();
