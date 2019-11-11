@@ -9,7 +9,7 @@
     "electron": "ng build --prod && electron .",
     "electron-only": "tsc -p tsconfig-serve.json && electron .",
     "electron:serve-tsc": "tsc -p tsconfig-serve.json",
-    "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
+    "electron:serve": "wait-on http-get://localhost:4200/ && electron . --serve",
     "build": "ng build",
     "ng:serve": "ng serve",
     "test": "ng test",
