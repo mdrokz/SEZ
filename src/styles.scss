@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+.menu-item a .menu-title {
+    flex: unset !important;
+}
+
+.nb-theme-default nb-sidebar .main-container {
+    width: 30% !important;
+}
+
+.nb-theme-default nb-sidebar.expanded {
+    width: 30% !important;
+}

@@ -1,0 +1,13 @@
+.nb-theme-default {
+    nb-sidebar {
+        width: 30%;
+
+        .main-container {
+            width: 30% !important;
+        }
+
+        &.expanded {
+            width: 30%;
+        }
+    }
+}

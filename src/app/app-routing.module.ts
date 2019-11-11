@@ -28,6 +28,11 @@ const routes: Routes = [
       .then(m => m.PagesModule),
   },
   {
+    path: 'sez',
+    loadChildren: () => import('./sez/sez.module')
+      .then(m => m.SezModule),
+  },
+  {
     path: 'auth',
     component: NbAuthComponent,
     children: [
@@ -57,8 +62,8 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'auth/login' }
+  { path: '', redirectTo: 'sez', pathMatch: 'full' },
+  { path: '**', redirectTo: 'sez' }
 ];
 
 
