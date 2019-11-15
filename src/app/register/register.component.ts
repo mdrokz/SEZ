@@ -12,15 +12,4 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-  addUser() {
-    this.ipc.send("user/register", "register", this.user).then(res => {
-      // this.ipc.registerUser(this.user).then(res => {
-      console.log(res, this.user);
-      if (res.status == 200) {
-        this.router.navigateByUrl('/login');
-      } else {
-        console.error(res.error);
-      }
-    })
-  }
 }

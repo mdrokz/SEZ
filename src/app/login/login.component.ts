@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
   login(form) {
     if(form.valid) {
-      this.ipc.loginUser(this.user).then(res => {
+      this.ipc.send("user/login","login",this.user).then(res => {
         console.log(res);
         if(res != null || res != {}) {
           this.router.navigateByUrl("pages/dashboard");

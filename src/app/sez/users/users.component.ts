@@ -27,6 +27,10 @@ export class UsersComponent implements OnInit {
       confirmDelete: true,
     },
     columns: {
+      id: {
+        title: 'ID',
+        type: 'number',
+      },
       FullName: {
         title: 'Name',
         type: 'string',

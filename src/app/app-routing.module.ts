@@ -15,14 +15,6 @@ import {
 
 const routes: Routes = [
   {
-    component: DevComponent,
-    path: 'dev'
-  },
-  {
-    component: RegisterComponent,
-    path: 'register'
-  },
-  {
     path: 'pages',
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),

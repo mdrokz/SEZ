@@ -23,7 +23,7 @@ export class SmartTableComponent {
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
+      // confirmDelete: true,
     },
     columns: {
       id: {
@@ -58,6 +58,11 @@ export class SmartTableComponent {
   constructor(private service: SmartTableData) {
     const data = this.service.getData();
     this.source.load(data);
+  }
+
+  add() {
+    console.log("hit");
+    debugger;
   }
 
   onDeleteConfirm(event): void {
