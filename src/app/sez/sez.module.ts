@@ -6,7 +6,7 @@ import { UsersComponent } from './users/users.component';
 import { SezRoutingModule } from './sez-routing.module';
 import { MiscellaneousModule } from '../pages/miscellaneous/miscellaneous.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-import { SmartTableComponent } from '../pages/tables/smart-table/smart-table.component';
+// import { SmartTableComponent } from '../pages/tables/smart-table/smart-table.component';
 
 @NgModule({
     imports: [
@@ -19,8 +19,7 @@ import { SmartTableComponent } from '../pages/tables/smart-table/smart-table.com
     ],
     declarations: [
         SezComponent,
-        UsersComponent,
-        SmartTableComponent
+        UsersComponent
     ],
 })
 export class SezModule {

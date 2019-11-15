@@ -4,16 +4,40 @@ var Umongo = require('mongoose-unique-validator');
 
 
 var userSchema = new Schema({
-    username: {
-        type: String
-    },
-    password: {
-        type: String
-    }
+  Id: {
+    type: String
+  },
+  username: {
+    type: String
+  },
+  password: {
+    type: String
+  },
+  Name: {
+    type: String
+  },
+  ITS: {
+    type: String
+  },
+  Mobile: {
+    type: String
+  },
+  Age: {
+    type: String
+  },
+  Title: {
+    type: String
+  },
+  SectorIncharge: {
+    type: String
+  },
+  SpecialSkills: {
+    type: String
+  }
+
 });
 
 
-userSchema.plugin(Umongo);
+// userSchema.plugin(Umongo);
 
-
-module.exports = mongoose.model('users',userSchema);
+module.exports = mongoose.model('users', userSchema);

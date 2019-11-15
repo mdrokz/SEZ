@@ -13,6 +13,12 @@ var route = {
         case "user/login":
           userCtrl.login(request, resolve, reject)
           break;
+        case "user/editUser":
+          userCtrl.editUser(request, resolve, reject)
+          break;
+        case "user/deleteUser":
+          userCtrl.deleteUser(request, resolve, reject)
+          break;
       }
     });
   }

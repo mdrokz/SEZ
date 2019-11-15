@@ -23,7 +23,7 @@ export class SmartTableComponent {
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
-      // confirmDelete: true,
+      confirmDelete: true,
     },
     columns: {
       id: {

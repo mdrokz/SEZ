@@ -25,7 +25,7 @@ var used = process.memoryUsage().heapUsed / 1024 / 1024;
 console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB`);
 // ipc communication
 electron_1.ipcMain.on("api", function (event, arg) {
-    console.log(arg);
+    // console.log(arg);
     route.parse(arg).then(res => {
         win.webContents.send(arg.listener, {
             status: 200,
