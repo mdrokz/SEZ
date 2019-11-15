@@ -26,13 +26,13 @@ export class IpcService {
     }
   }
 
-  send(path: string, data: any) {
+  send(path: string, listener: string, data: any) {
     return new Promise<any>((resolve, reject) => {
       console.log(this.electron);
-      this.electron.ipcRenderer.once("apiResponse", (event, arg) => {
+      this.electron.ipcRenderer.once(listener, (event, arg) => {
         resolve(arg);
       });
-      this.electron.ipcRenderer.send("api", { path: path, data: data });
+      this.electron.ipcRenderer.send("api", { path: path, listener: listener, data: data });
     });
   }
 
@@ -45,6 +45,7 @@ export class IpcService {
       this.electron.ipcRenderer.send("registerUser", data);
     });
   }
+
   loginUser(data: any) {
     return new Promise<any>((resolve, reject) => {
       this.electron.ipcRenderer.once("loginUserResponse", (event, arg) => {

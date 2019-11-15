@@ -5,7 +5,8 @@ var electron_1 = require("electron");
 var mongoose = require('mongoose');
 // const path = require("path");
 // const url = require("url");
-var userModel = require('./models/user.model');
+var route = require('./data-access/route');
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 var win, serve;
@@ -19,18 +20,15 @@ mongoose.connect("mongodb://localhost:27017/test", {
 // ipc communication
 electron_1.ipcMain.on("api", function (event, arg) {
     console.log(arg);
-    var user = new userModel(arg);
-    user.save(function (err, product) {
-        if (err) {
-            win.webContents.send("registerUserResponse", {
-                error: err
-            });
-        }
-        else {
-            win.webContents.send("registerUserResponse", {
-                status: 200
-            });
-        }
+    route.parse(arg).then(res => {
+        win.webContents.send(arg.listener, {
+            status: 200,
+            data: res
+        });
+    }, err => {
+        win.webContents.send(arg.listener, {
+            status: 500
+        });
     });
 });
 
