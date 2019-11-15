@@ -6,6 +6,16 @@
             width: 30% !important;
         }
 
+        &.compacted {
+            .main-container {
+                width: 3.5rem !important;
+            }
+        }
+
+        &.expanded {
+            width: 30%;
+        }
+
         &.expanded {
             width: 30%;
         }
