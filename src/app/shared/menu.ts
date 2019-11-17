@@ -4,18 +4,18 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'Mmebers Bio Data',
         icon: 'shopping-cart-outline',
-        link: '/pages/dashboard',
+        link: '/sez/users',
         home: true,
     },
     {
         title: 'Members Yearly Contribution',
         icon: 'home-outline',
-        link: '/pages/iot-dashboard',
+        link: '/sez/yearlycontri',
     },
     {
         title: 'Sector Wise Mumineen List',
         icon: 'home-outline',
-        link: '/pages/iot-dashboard',
+        link: '/sez/citizen',
     },
     {
         title: '16 Raat Darees Voluntary Contribution Receipt',

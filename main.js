@@ -17,26 +17,38 @@ serve = args.some(function (val) {
   return val === '--serve';
 });
 // connect to mongodb
-mongoose.connect("mongodb://localhost:27017/test", {
+// var mongoUrl = "mongodb://localhost:27017/test";
+var mongoUrl = "mongodb+srv://sez:sez%40123@sez-zgsak.mongodb.net/sez";
+
+mongoose.connect(mongoUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+
+mongoose.connection.on('open', (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('Mongo is connected...');
+  }
+});
+
 var used = process.memoryUsage().heapUsed / 1024 / 1024;
 console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB`);
 // ipc communication
 electron_1.ipcMain.on("api", function (event, arg) {
-    // console.log(arg);
-    route.parse(arg).then(res => {
-        win.webContents.send(arg.listener, {
-            status: 200,
-            data: res
-        });
-    }, err => {
-        win.webContents.send(arg.listener, {
-            status: 500,
-            error: err
-        });
+  // console.log(arg);
+  route.parse(arg).then(res => {
+    win.webContents.send(arg.listener, {
+      status: 200,
+      data: res
     });
+  }, err => {
+    win.webContents.send(arg.listener, {
+      status: 500,
+      error: err
+    });
+  });
 });
 // used = process.memoryUsage().heapUsed / 1024 / 1024;
 // console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB`);
@@ -172,3 +184,4 @@ electron_1.app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 //# sourceMappingURL=main.js.map
+console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB`);
