@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var electron_1 = require("electron");
 var mongoose = require('mongoose');
-//var path = require("path");
+var path = require("path");
 // const url = require("url");
 var route = require('./data-access/route');
 
@@ -16,6 +16,7 @@ var args = process.argv.slice(1);
 serve = args.some(function (val) {
   return val === '--serve';
 });
+
 // connect to mongodb
 // var mongoUrl = "mongodb://localhost:27017/test";
 var mongoUrl = "mongodb+srv://sez:sez%40123@sez-zgsak.mongodb.net/sez";
@@ -50,6 +51,11 @@ electron_1.ipcMain.on("api", function (event, arg) {
     });
   });
 });
+
+electron_1.ipcMain.on("currentPath",function(event,arg) {
+  win.webContents.send("response",__dirname);
+});
+
 // used = process.memoryUsage().heapUsed / 1024 / 1024;
 // console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB`);
 // var used = process.memoryUsage().heapUsed / 1024 / 1024;

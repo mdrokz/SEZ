@@ -55,4 +55,13 @@ export class IpcService {
     });
   }
 
+  checkPath() {
+    return new Promise<any>((resolve,reject) => {
+      this.electron.ipcRenderer.once("response",(event,arg) => {
+        resolve(arg);
+      })
+      this.electron.ipcRenderer.send("currentPath");
+    });
+  }
+
 }
