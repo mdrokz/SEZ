@@ -29,6 +29,8 @@ import {
   NbIconModule,
   NbButtonModule
 } from '@nebular/theme';
+import { CitizenComponent } from './sez/citizen/citizen.component';
+import { MembersYearlyContriComponent } from './sez/members-yearly-contri/members-yearly-contri.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import {
     DevComponent,
     RegisterComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+
   ],
   imports: [
     BrowserModule,
