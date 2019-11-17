@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var electron_1 = require("electron");
 var mongoose = require('mongoose');
-// const path = require("path");
+//var path = require("path");
 // const url = require("url");
 var route = require('./data-access/route');
 
@@ -138,7 +138,7 @@ function createWindow() {
     });
     win.loadURL('http://localhost:7700');
   } else {
-    win.loadFile('./dist/electron-poc/index.html');
+    win.loadFile('./build/index.html');
   }
   // Open the DevTools.
   win.webContents.openDevTools();

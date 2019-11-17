@@ -7,14 +7,39 @@
     "start": "npm run postinstall:electron && npm-run-all -p ng:serve electron:serve",
     "postinstall:electron": "node postinstall",
     "electron": "ng build --prod && electron .",
-    "electron-only": "electron . --serve",
+    "electron-only-dev": "electron . --serve",
+    "electron-only": "electron .",
     "electron:serve-tsc": "tsc -p tsconfig-serve.json",
     "electron:serve": "wait-on http-get://localhost:7700/ && electron . --serve",
     "build": "ng build",
     "ng:serve": "ng serve --port 7700",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "electron-pack": "electron-builder --dir",
+    "electron-build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.shabab.sez",
+
+    "win": {
+      "target": "portable",
+      "icon": "build/icon.ico"
+    },
+    "files": [
+      "*.js",
+      "build",
+      "node_modules",
+      "src",
+      "*.ts",
+      "*.scss",
+      "*.css",
+      "*.json",
+      "data-access",
+      "e2e",
+      "models",
+      "MongoDB"
+    ]
   },
   "private": true,
   "dependencies": {
