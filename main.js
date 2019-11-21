@@ -19,7 +19,7 @@ serve = args.some(function (val) {
 
 // connect to mongodb
 // var mongoUrl = "mongodb://localhost:27017/test";
-var mongoUrl = "mongodb+srv://sez:sez%40123@sez-zgsak.mongodb.net/sez";
+var mongoUrl = "mongodb+srv://sez:sez123@sez-zgsak.mongodb.net/sez";
 
 mongoose.connect(mongoUrl, {
   useNewUrlParser: true,
