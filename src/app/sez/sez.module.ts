@@ -8,6 +8,12 @@ import { MiscellaneousModule } from '../pages/miscellaneous/miscellaneous.module
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { CitizenComponent } from './citizen/citizen.component';
 import { MembersYearlyContriComponent } from './members-yearly-contri/members-yearly-contri.component';
+import { DareesComponent } from './darees/darees.component';
+import { DareesMenuComponent } from './darees-menu/darees-menu.component';
+import { DareesVoucherComponent } from './darees-voucher/darees-voucher.component';
+import { AsharaMubarakaComponent } from './ashara-mubaraka/ashara-mubaraka.component';
+import { BankComponent } from './bank/bank.component';
+import { ReportsComponent } from './reports/reports.component';
 // import { SmartTableComponent } from '../pages/tables/smart-table/smart-table.component';
 
 @NgModule({
@@ -23,7 +29,13 @@ import { MembersYearlyContriComponent } from './members-yearly-contri/members-ye
         SezComponent,
         UsersComponent,
         CitizenComponent,
-        MembersYearlyContriComponent
+        MembersYearlyContriComponent,
+        DareesComponent,
+        DareesMenuComponent,
+        DareesVoucherComponent,
+        AsharaMubarakaComponent,
+        BankComponent,
+        ReportsComponent
     ],
 })
 export class SezModule {

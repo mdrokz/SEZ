@@ -20,27 +20,27 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: '16 Raat Darees Voluntary Contribution Receipt',
         icon: 'home-outline',
-        link: '/pages/iot-dashboard',
+        link: '/pages/darees',
     },
     {
         title: '16 Mi Raat Darees Menu',
         icon: 'home-outline',
-        link: '/pages/iot-dashboard',
+        link: '/pages/darees-menu',
     },
     {
         title: '16 Mi Raat Darees Expenses Voucher',
         icon: 'home-outline',
-        link: '/pages/iot-dashboard',
+        link: '/pages/darees-voucher',
     },
     {
         title: 'Ashara Mubaraka 1444 Niyaz Contribution Receipt',
         icon: 'home-outline',
-        link: '/pages/iot-dashboard',
+        link: '/pages/ashara-mubaraka',
     },
     {
         title: 'Statement Cash // Bank',
         icon: 'home-outline',
-        link: '/pages/iot-dashboard'
+        link: '/pages/bank'
     },
     {
         title: 'Reports',
