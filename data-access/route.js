@@ -2,7 +2,7 @@ const userCtrl = require("./user.controller");
 const citizenCtrl = require('./citizen.controller');
 const ycontriCtrl = require("./yearly-contri.controller");
 const asharacontriCtrl = require('./ashara-contri.controller');
-
+const dareesMenuCtrl = require('./darees-menu.controller');
 
 var route = {
   parse: (request) => {
@@ -61,6 +61,22 @@ var route = {
           break;
         case "asharacontri/deleteUser":
           asharacontriCtrl.deleteUser(request, resolve, reject)
+          break;
+
+        case "dareesmenu/addMenuMaster":
+          dareesMenuCtrl.addMenuMaster(request, resolve, reject);
+          break;
+        case "dareesmenu/addMenuDetails":
+          dareesMenuCtrl.addMenuDetails(request, resolve, reject);
+          break;
+        case "dareesmenu/getAllUsers":
+          dareesMenuCtrl.getAllUsers(request, resolve, reject);
+          break;
+        case "dareesmenu/editUser":
+          dareesMenuCtrl.editUser(request, resolve, reject)
+          break;
+        case "dareesmenu/deleteUser":
+          dareesMenuCtrl.deleteUser(request, resolve, reject)
           break;
       }
     });

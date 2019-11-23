@@ -7,16 +7,16 @@
     <span class="label-with-link">
       <label class="label" for="input-password">Date :</label>
     </span>
-    <input nbInput [nbDatepicker]="rangepicker" placeholder="Date">
+    <input nbInput [nbDatepicker]="rangepicker" placeholder="Date" [(ngModel)]="masterMenu.Date" name="Date">
     <nb-datepicker #rangepicker></nb-datepicker>
     <span class="label-with-link">
       <label class="label" for="input-password">No. of People :</label>
     </span>
-    <input nbInput placeholder="No. of People" />
+    <input nbInput placeholder="No. of People" [(ngModel)]="masterMenu.PeopleCount" name="PeopleCount" />
     <span class="label-with-link">
       <label class="label" for="input-password">No. of Thaals :</label>
     </span>
-    <input nbInput placeholder="No. of Thaals" />
+    <input nbInput placeholder="No. of Thaals" [(ngModel)]="masterMenu.ThaalCount" name="ThaalCount" />
   </div>
 
   <nb-card>
@@ -25,12 +25,12 @@
     </nb-card-header>
     <nb-card-body>
       <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"
-        (editConfirm)="edit($event)">
+        (createConfirm)="createConfirm($event)" (editConfirm)="edit($event)">
       </ng2-smart-table>
     </nb-card-body>
   </nb-card>
-  <button nbButton size="small">Save</button>
-  <button nbButton size="small" class="cancel_button">Cancel</button>
+  <button nbButton size="small" (click)="save()">Save</button>
+  <button nbButton size="small" class="cancel_button" (click)="cancel()">Cancel</button>
   <nb-card>
     <nb-card-body>
       <ng2-smart-table [settings]="settings2" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"

@@ -29,10 +29,10 @@ var ycontri = {
     editUser: function (req, res, rej) {
       console.log(typeof req.data.Mobile);
       var updateQuery = {
-        "Id":req.data.Id ,
+        "Sr":req.data.Sr ,
         "Name":req.data.Name,
-        "ITS":req.data.ITS,
-        "Mobile":req.data.Mobile 
+        "Date":req.data.Date,
+        "Amount":req.data.Amount 
       };
       asharacontrimodel.findOneAndUpdate({
         _id: ObjectId(req.data._id.id)

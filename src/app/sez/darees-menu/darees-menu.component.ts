@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
+import { IpcService } from 'src/app/services/ipc.service';
 
 @Component({
   selector: 'app-darees-menu',
@@ -14,7 +15,7 @@ export class DareesMenuComponent implements OnInit {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
-      //confirmCreate: true
+      confirmCreate: true
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
@@ -48,7 +49,7 @@ export class DareesMenuComponent implements OnInit {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
-      //confirmCreate: true
+      // confirmCreate: true
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
@@ -83,10 +84,16 @@ export class DareesMenuComponent implements OnInit {
     },
   };
 
-  userData: any = {};
+  userData: any = [];
+  masterMenu: any = {};
 
   source: LocalDataSource = new LocalDataSource();
-  constructor() { }
+  constructor(private ipc: IpcService) { }
+
+  createConfirm(event) {
+    this.userData.push(event.newData);
+    event.confirm.resolve();
+  }
 
   ngOnInit() {
   }
@@ -112,6 +119,20 @@ export class DareesMenuComponent implements OnInit {
     } else {
       event.confirm.reject();
     }
+  }
+
+  save() {
+    console.log(this.masterMenu);
+    this.ipc.send("dareesmenu/addMenuMaster", "addMenuMaster", this.masterMenu).then(res => {
+      console.log(res);
+    })
+    this.ipc.send("dareesmenu/addMenuDetails", "addMenuDetail", this.userData).then(res => {
+      console.log(res);
+    });
+  }
+
+  cancel() {
+    this.masterMenu = {};
   }
 
 }
