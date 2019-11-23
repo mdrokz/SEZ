@@ -26,14 +26,19 @@ var user = {
     });
   },
   login: function (req, res, rej) {
-    userModel.findOne(req.data, function (err, product) {
-      if (err) {
-        rej(err);
-      } else {
-        console.log(product);
-        res(product._doc);
-      }
-    });
+    if (Object.keys(req.data).length != 0) {
+      console.log("it went in wtf");
+      userModel.findOne(req.data, function (err, product) {
+        if (err) {
+          rej(err);
+        } else {
+          console.log(product);
+          res(product._doc);
+        }
+      });
+    } else {
+      rej(null)
+    }
   },
   editUser: function (req, res, rej) {
     console.log(typeof req.data.Mobile);

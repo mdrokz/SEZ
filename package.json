@@ -10,7 +10,7 @@
     "electron-only-dev": "electron . --serve",
     "electron-only": "electron .",
     "electron:serve-tsc": "tsc -p tsconfig-serve.json",
-    "electron:serve": "wait-on http-get://localhost:7700/ && electron . --serve",
+    "electron:serve": "wait-on http-get://localhost:7700/",
     "build": "ng build",
     "ng:serve": "ng serve --port 7700",
     "test": "ng test",

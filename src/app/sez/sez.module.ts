@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule, NbCardModule } from '@nebular/theme';
+import { NbMenuModule, NbCardModule,NbDatepickerModule, NbInputModule,NbIconModule, NbButtonModule } from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
 import { SezComponent } from './sez.component';
 import { UsersComponent } from './users/users.component';
@@ -11,9 +11,10 @@ import { MembersYearlyContriComponent } from './members-yearly-contri/members-ye
 import { DareesComponent } from './darees/darees.component';
 import { DareesMenuComponent } from './darees-menu/darees-menu.component';
 import { DareesVoucherComponent } from './darees-voucher/darees-voucher.component';
-import { AsharaMubarakaComponent } from './ashara-mubaraka/ashara-mubaraka.component';
+import { AsharaContriComponent } from './ashara-contri/ashara-contri.component';
 import { BankComponent } from './bank/bank.component';
 import { ReportsComponent } from './reports/reports.component';
+import { SezDatepickerComponent } from './sez-datepicker/sez-datepicker.component';
 // import { SmartTableComponent } from '../pages/tables/smart-table/smart-table.component';
 
 @NgModule({
@@ -22,8 +23,15 @@ import { ReportsComponent } from './reports/reports.component';
         ThemeModule,
         NbMenuModule,
         MiscellaneousModule,
+        NbInputModule,
         Ng2SmartTableModule,
         NbCardModule,
+        NbDatepickerModule,
+        NbButtonModule,
+        NbIconModule
+    ],
+    entryComponents: [
+        SezDatepickerComponent
     ],
     declarations: [
         SezComponent,
@@ -33,10 +41,11 @@ import { ReportsComponent } from './reports/reports.component';
         DareesComponent,
         DareesMenuComponent,
         DareesVoucherComponent,
-        AsharaMubarakaComponent,
+        AsharaContriComponent,
         BankComponent,
-        ReportsComponent
-    ],
+        ReportsComponent,
+        SezDatepickerComponent
+    ]
 })
 export class SezModule {
 }

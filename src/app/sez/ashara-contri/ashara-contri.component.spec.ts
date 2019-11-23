@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AsharaMubarakaComponent } from './ashara-mubaraka.component';
+import { AsharaContriComponent } from './ashara-contri.component';
 
 describe('AsharaMubarakaComponent', () => {
-  let component: AsharaMubarakaComponent;
-  let fixture: ComponentFixture<AsharaMubarakaComponent>;
+  let component: AsharaContriComponent;
+  let fixture: ComponentFixture<AsharaContriComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AsharaMubarakaComponent ]
+      declarations: [ AsharaContriComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AsharaMubarakaComponent);
+    fixture = TestBed.createComponent(AsharaContriComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

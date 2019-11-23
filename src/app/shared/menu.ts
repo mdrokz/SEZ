@@ -2,7 +2,7 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
     {
-        title: 'Mmebers Bio Data',
+        title: 'Members Bio Data',
         icon: 'shopping-cart-outline',
         link: '/sez/users',
         home: true,
@@ -20,27 +20,27 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: '16 Raat Darees Voluntary Contribution Receipt',
         icon: 'home-outline',
-        link: '/pages/darees',
+        link: '/sez/darees',
     },
     {
         title: '16 Mi Raat Darees Menu',
         icon: 'home-outline',
-        link: '/pages/darees-menu',
+        link: '/sez/darees-menu',
     },
     {
         title: '16 Mi Raat Darees Expenses Voucher',
         icon: 'home-outline',
-        link: '/pages/darees-voucher',
+        link: '/sez/darees-voucher',
     },
     {
         title: 'Ashara Mubaraka 1444 Niyaz Contribution Receipt',
         icon: 'home-outline',
-        link: '/pages/ashara-mubaraka',
+        link: '/sez/ashara-contri',
     },
     {
         title: 'Statement Cash // Bank',
         icon: 'home-outline',
-        link: '/pages/bank'
+        link: '/sez/bank'
     },
     {
         title: 'Reports',

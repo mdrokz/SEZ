@@ -24,8 +24,9 @@ export class LoginComponent implements OnInit {
     if(form.valid) {
       this.ipc.send("user/login","login",this.user).then(res => {
         console.log(res);
-        if(res != null || res != {}) {
-          this.router.navigateByUrl("pages/dashboard");
+        if(res.data != null && res.status != 500) {
+          localStorage.setItem('username',res.data.username);
+          this.router.navigateByUrl("sez/users");
         }
       })
     }

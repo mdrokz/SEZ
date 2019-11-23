@@ -1,7 +1,7 @@
 const userCtrl = require("./user.controller");
-var citizenCtrl = require('./citizen.controller');
+const citizenCtrl = require('./citizen.controller');
 const ycontriCtrl = require("./yearly-contri.controller");
-
+const asharacontriCtrl = require('./ashara-contri.controller');
 
 
 var route = {
@@ -24,31 +24,44 @@ var route = {
           userCtrl.deleteUser(request, resolve, reject)
           break;
 
-          case "citizen/addUser":
-            citizenCtrl.addUser(request, resolve, reject);
-            break;
-          case "citizen/getAllUsers":
-            citizenCtrl.getAllUsers(request, resolve, reject);
-            break;
-          case "citizen/editUser":
-            citizenCtrl.editUser(request, resolve, reject)
-            break;
-          case "citizen/deleteUser":
-            citizenCtrl.deleteUser(request, resolve, reject)
-            break;
+        case "citizen/addUser":
+          citizenCtrl.addUser(request, resolve, reject);
+          break;
+        case "citizen/getAllUsers":
+          citizenCtrl.getAllUsers(request, resolve, reject);
+          break;
+        case "citizen/editUser":
+          citizenCtrl.editUser(request, resolve, reject)
+          break;
+        case "citizen/deleteUser":
+          citizenCtrl.deleteUser(request, resolve, reject)
+          break;
 
-            case "yearlycontri/addUser":
-            ycontriCtrl.addUser(request, resolve, reject);
-            break;
-          case "yearlycontri/getAllUsers":
-            ycontriCtrl.getAllUsers(request, resolve, reject);
-            break;
-          case "yearlycontri/editUser":
-            ycontriCtrl.editUser(request, resolve, reject)
-            break;
-          case "yearlycontri/deleteUser":
-            ycontriCtrl.deleteUser(request, resolve, reject)
-            break;
+        case "yearlycontri/addUser":
+          ycontriCtrl.addUser(request, resolve, reject);
+          break;
+        case "yearlycontri/getAllUsers":
+          ycontriCtrl.getAllUsers(request, resolve, reject);
+          break;
+        case "yearlycontri/editUser":
+          ycontriCtrl.editUser(request, resolve, reject)
+          break;
+        case "yearlycontri/deleteUser":
+          ycontriCtrl.deleteUser(request, resolve, reject)
+          break;
+
+        case "asharacontri/addUser":
+          asharacontriCtrl.addUser(request, resolve, reject);
+          break;
+        case "asharacontri/getAllUsers":
+          asharacontriCtrl.getAllUsers(request, resolve, reject);
+          break;
+        case "asharacontri/editUser":
+          asharacontriCtrl.editUser(request, resolve, reject)
+          break;
+        case "asharacontri/deleteUser":
+          asharacontriCtrl.deleteUser(request, resolve, reject)
+          break;
       }
     });
   }
