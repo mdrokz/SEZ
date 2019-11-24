@@ -5,69 +5,108 @@ var ObjectId = require('mongoose').Types.ObjectId;
 
 var dareesMenu = {
   addMenuMaster: function (req, res, rej) {
-    var user = new menuMasterModel(req.data);
-    user.save(function (err, product) {
-      if (err) {
-        rej(err);
-      } else {
-        res(product);
-      }
-    });
-  },
-  addMenuDetails: function (req, res, rej) {
-    req.data.forEach(x => {
-      var user = new menuDetailsModel(x);
+    if (!req.data._id && !req.data.menuData) {
+      var user = new menuMasterModel(req.data.masterMenu);
       user.save(function (err, product) {
         if (err) {
           rej(err);
         } else {
+          req.data.menuDetails.forEach(x => {
+            x.MenuMasterId = ObjectId(product._id.id);
+            var user = new menuDetailsModel(x);
+            user.save(function (err, product) {
+              if (err) {
+                rej(err);
+              } else {
+                res(product);
+              }
+            });
+          });
           res(product);
         }
       });
-    });
+    } else {
+      var menuMasterUpdateQuery = {
+        "Date": req.data.Date,
+        "PeopleCount": req.data.PeopleCount,
+        "ThaalCount": req.data.ThaalCount
+      };
+      var menuDetailsUpdateQuery = {
+        "SR": req.data.menuData.SR,
+        "Item": req.data.menuData.Item,
+        "QTY": req.data.menuData.QTY
+      };
+      menuMasterModel.findOneAndUpdate({
+        _id: ObjectId(req.data._id.id)
+      }, menuMasterUpdateQuery).exec((err, Masterresult) => {
+        if (err) {
+          rej(err)
+        } else {
+          menuDetailsModel.findOneAndUpdate({
+            _id: ObjectId(req.data.menuData._id.id)
+          }, menuDetailsUpdateQuery).exec((err, Detailresult) => {
+            if (err) {
+              rej(err)
+            } else {
+              res({
+                menuMaster: Masterresult,
+                menuDetail: Detailresult
+              });
+            }
+          })
+        }
+      })
+    }
   },
-  getAllUsers: function (req, res, rej) {
-    menuDetailsModel.find({}, function (err, product) {
-      if (err) {
-        rej(err);
-      } else {
-        // console.log(product);
-        var data = [];
-        product.forEach((x, i) => {
-          data[i] = x._doc;
-        });
-        res(data);
+  getAllMenuData: function (req, res, rej) {
+    // menuDetailsModel.find({}, function (err, product) {
+    //   if (err) {
+    //     rej(err);
+    //   } else {
+    //     // console.log(product);
+    //     var data = [];
+    //     product.forEach((x, i) => {
+    //       data[i] = x._doc;
+    //     });
+    //     res(data);
+    //   }
+    // });
+    menuMasterModel.aggregate([{
+      $lookup: {
+        from: "menudetails",
+        localField: "_id",
+        foreignField: "MenuMasterId",
+        as: "menuData"
       }
-    });
-  },
-  editUser: function (req, res, rej) {
-    console.log(typeof req.data.Mobile);
-    var updateQuery = {
-      "Id": req.data.Id,
-      "Name": req.data.Name,
-      "ITS": req.data.ITS,
-      "Mobile": req.data.Mobile
-    };
-    menuDetailsModel.findOneAndUpdate({
-      _id: ObjectId(req.data._id.id)
-    }, updateQuery).exec((err, result) => {
+    }]).exec((err, result) => {
       if (err) {
-        console.log(err);
-        rej(err);
+        rej(err)
       } else {
         res(result);
+        console.log(result);
       }
-    });
+    })
   },
   deleteUser: function (req, res, rej) {
     console.log(req.data);
     menuDetailsModel.findByIdAndRemove({
-      _id: ObjectId(req.data._id.id)
-    }, (err, result) => {
+      _id: ObjectId(req.data.menuData._id.id)
+    }, (err, Detailresult) => {
       if (err) {
         rej(err);
       } else {
-        res(result);
+        menuMasterModel.findByIdAndRemove({
+          _id: ObjectId(req.data._id.id)
+        }, (err, Masterresult) => {
+          if (err) {
+            rej(err);
+          } else {
+            res({
+              menuMaster: Masterresult,
+              menuDetail: Detailresult
+            });
+          }
+        });
       }
     });
   }

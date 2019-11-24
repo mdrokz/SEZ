@@ -2,7 +2,7 @@
   <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
 </button>
 
-<div *ngIf="boo">
+<div *ngIf="IsAdding">
   <div class="main_div">
     <span class="label-with-link">
       <label class="label" for="input-password">Date :</label>
@@ -24,18 +24,30 @@
       16 Raat Darees Menu
     </nb-card-header>
     <nb-card-body>
-      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"
+      <ng2-smart-table [settings]="settingsAdd" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"
         (createConfirm)="createConfirm($event)" (editConfirm)="edit($event)">
       </ng2-smart-table>
     </nb-card-body>
   </nb-card>
   <button nbButton size="small" (click)="save()">Save</button>
   <button nbButton size="small" class="cancel_button" (click)="cancel()">Cancel</button>
-  <nb-card>
-    <nb-card-body>
-      <ng2-smart-table [settings]="settings2" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"
-        (editConfirm)="edit($event)">
-      </ng2-smart-table>
-    </nb-card-body>
-  </nb-card>
 </div>
+
+<nb-card *ngFor="let item of menuData">
+  <nb-card-body>
+    <div>
+      <span class="label-with-link">
+        <label class="label" for="input-password">Date : {{item.Date | date:'dd/MM/yyyy'}}</label>
+      </span>
+      <span class="label-with-link">
+        <label class="label" for="input-password">No. of People : {{item.PeopleCount}}</label>
+      </span>
+      <span class="label-with-link">
+        <label class="label" for="input-password">No. of Thaals : {{item.ThaalCount}}</label>
+      </span>
+      <button nbButton size="small" (click)="editData(item)">Edit</button>
+      <button nbButton size="small" class="cancel_button" (click)="deleteData(item)">Delete</button>
+    </div>
+    <sez-smart-table [settings]="settingsView" [data]="item.menuData"></sez-smart-table>
+  </nb-card-body>
+</nb-card>

@@ -66,11 +66,8 @@ var route = {
         case "dareesmenu/addMenuMaster":
           dareesMenuCtrl.addMenuMaster(request, resolve, reject);
           break;
-        case "dareesmenu/addMenuDetails":
-          dareesMenuCtrl.addMenuDetails(request, resolve, reject);
-          break;
-        case "dareesmenu/getAllUsers":
-          dareesMenuCtrl.getAllUsers(request, resolve, reject);
+        case "dareesmenu/getAllMenuData":
+          dareesMenuCtrl.getAllMenuData(request, resolve, reject);
           break;
         case "dareesmenu/editUser":
           dareesMenuCtrl.editUser(request, resolve, reject)

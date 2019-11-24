@@ -38,7 +38,7 @@ import { MembersYearlyContriComponent } from './sez/members-yearly-contri/member
     DevComponent,
     RegisterComponent,
     LoginComponent,
-    DashboardComponent,
+    DashboardComponent
 
   ],
   imports: [

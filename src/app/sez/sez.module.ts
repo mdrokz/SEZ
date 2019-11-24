@@ -16,6 +16,7 @@ import { BankComponent } from './bank/bank.component';
 import { ReportsComponent } from './reports/reports.component';
 import { SezDatepickerComponent } from './sez-datepicker/sez-datepicker.component';
 import { FormsModule } from '@angular/forms';
+import { SmartTableComponent } from '../shared/components/smart-table/smart-table/smart-table.component';
 // import { SmartTableComponent } from '../pages/tables/smart-table/smart-table.component';
 
 @NgModule({
@@ -46,7 +47,8 @@ import { FormsModule } from '@angular/forms';
         AsharaContriComponent,
         BankComponent,
         ReportsComponent,
-        SezDatepickerComponent
+        SezDatepickerComponent,
+        SmartTableComponent
     ]
 })
 export class SezModule {
