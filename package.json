@@ -9,6 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "angular": "ng serve --port 4400",
     "postinstall": "electron-builder install-app-deps",
     "electron:start": "npm-run-all -p postinstall ng:clean ng:build electron:serve",
     "ng:clean": "rimraf dist && rimraf main.js",
