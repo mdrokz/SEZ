@@ -29,38 +29,38 @@ export class IpcService {
   send(path: string, listener: string, data: any) {
     return new Promise<any>((resolve, reject) => {
       console.log(this.electron);
-      this.electron.ipcRenderer.once(listener, (event, arg) => {
-        resolve(arg);
-      });
-      this.electron.ipcRenderer.send("api", { path: path, listener: listener, data: data });
+      // this.electron.ipcRenderer.once(listener, (event, arg) => {
+      //   resolve(arg);
+      // });
+      // this.electron.ipcRenderer.send("api", { path: path, listener: listener, data: data });
     });
   }
 
   registerUser(data: any) {
     return new Promise<any>((resolve, reject) => {
       console.log(this.electron);
-      this.electron.ipcRenderer.once("registerUserResponse", (event, arg) => {
-        resolve(arg);
-      });
-      this.electron.ipcRenderer.send("registerUser", data);
+      // this.electron.ipcRenderer.once("registerUserResponse", (event, arg) => {
+      //   resolve(arg);
+      // });
+      // this.electron.ipcRenderer.send("registerUser", data);
     });
   }
 
   loginUser(data: any) {
     return new Promise<any>((resolve, reject) => {
-      this.electron.ipcRenderer.once("loginUserResponse", (event, arg) => {
-        resolve(arg);
-      });
-      this.electron.ipcRenderer.send("loginUser", data);
+      // this.electron.ipcRenderer.once("loginUserResponse", (event, arg) => {
+      //   resolve(arg);
+      // });
+      // this.electron.ipcRenderer.send("loginUser", data);
     });
   }
 
   checkPath() {
-    return new Promise<any>((resolve,reject) => {
-      this.electron.ipcRenderer.once("response",(event,arg) => {
-        resolve(arg);
-      })
-      this.electron.ipcRenderer.send("currentPath");
+    return new Promise<any>((resolve, reject) => {
+      // this.electron.ipcRenderer.once("response", (event, arg) => {
+      //   resolve(arg);
+      // })
+      // this.electron.ipcRenderer.send("currentPath");
     });
   }
 

@@ -1,7 +1,5 @@
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { DevComponent } from './dev/dev.component';
 import { NgModule } from '@angular/core';
+
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 
 import {
@@ -12,13 +10,14 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import { LoginComponent } from './auth/login/login.component';
+
 
 const routes: Routes = [
-  {
-    path: 'pages',
-    loadChildren: () => import('./pages/pages.module')
-      .then(m => m.PagesModule),
-  },
+  // {
+  //   path: 'sez',
+  //   loadChildren: ".\/sez\/sez.module.ts#SezModule"
+  // },
   {
     path: 'sez',
     loadChildren: () => import('./sez/sez.module')
@@ -64,7 +63,7 @@ const config: ExtraOptions = {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, config)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

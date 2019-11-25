@@ -1,45 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { DevComponent } from './dev/dev.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
-import { NgxElectronModule } from 'ngx-electron';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { AppRoutingModule } from "./app-routing.module";
 
-import { CoreModule } from './@core/core.module';
+import { ElectronService } from "./services/electron.service";
+
+import { AppComponent } from "./app.component";
+import { HomeComponent } from "./components/home/home.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SecondWindowComponent } from "./components/second-window/second-window.component";
+import { NbThemeModule, NbLayoutModule, NbAlertModule, NbInputModule, NbCheckboxModule, NbIconModule, NbButtonModule, NbMenuModule, NbSidebarModule, NbDatepickerModule, NbDialogModule, NbWindowModule, NbToastrModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { SezModule } from './sez/sez.module';
 import { ThemeModule } from './@theme/theme.module';
-import {
-  NbChatModule,
-  NbDatepickerModule,
-  NbDialogModule,
-  NbMenuModule,
-  NbSidebarModule,
-  NbToastrModule,
-  NbWindowModule,
-  NbAlertModule,
-  NbInputModule,
-  NbCheckboxModule,
-  NbIconModule,
-  NbButtonModule
-} from '@nebular/theme';
-import { CitizenComponent } from './sez/citizen/citizen.component';
-import { MembersYearlyContriComponent } from './sez/members-yearly-contri/members-yearly-contri.component';
+import { LoginComponent } from './auth/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { CoreModule } from './@core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DevComponent,
-    RegisterComponent,
-    LoginComponent,
-    DashboardComponent,
-
+    HomeComponent,
+    SecondWindowComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -47,14 +32,16 @@ import { MembersYearlyContriComponent } from './sez/members-yearly-contri/member
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    NgxElectronModule,
+    ThemeModule.forRoot(),
+    // NbThemeModule.forRoot({ name: 'corporate' }),
+    NbLayoutModule,
+    NbEvaIconsModule,
+    // Externally Added
     NbAlertModule,
     NbInputModule,
     NbCheckboxModule,
     NbIconModule,
     NbButtonModule,
-
-    ThemeModule.forRoot(),
 
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
@@ -62,12 +49,11 @@ import { MembersYearlyContriComponent } from './sez/members-yearly-contri/member
     NbDialogModule.forRoot(),
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
-    NbChatModule.forRoot({
-      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
-    }),
-    CoreModule.forRoot()
+    CoreModule.forRoot(),
+
+    SezModule
   ],
-  providers: [],
+  providers: [ElectronService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

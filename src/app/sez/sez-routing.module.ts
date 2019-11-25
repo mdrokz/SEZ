@@ -3,7 +3,7 @@ import { NgModule, Component } from '@angular/core';
 
 import { SezComponent } from './sez.component';
 import { UsersComponent } from './users/users.component';
-import { NotFoundComponent } from '../pages/miscellaneous/not-found/not-found.component';
+// import { NotFoundComponent } from '../pages/miscellaneous/not-found/not-found.component';
 import { CitizenComponent } from './citizen/citizen.component';
 import { MembersYearlyContriComponent } from './members-yearly-contri/members-yearly-contri.component';
 import { DareesComponent } from './darees/darees.component';
@@ -56,7 +56,8 @@ const routes: Routes = [{
         },
         {
             path: '**',
-            component: NotFoundComponent,
+            redirectTo: 'users',
+            pathMatch: 'full',
         },
     ],
 }];

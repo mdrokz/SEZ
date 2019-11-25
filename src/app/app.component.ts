@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
-import { IpcService } from './services/ipc.service';
+import { Component } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  constructor(private ipc: IpcService) {
-    this.ipc.checkPath().then(res => {
-      console.log(res);
-    })
+  constructor(
+    private router: Router
+  ) {
+    this.router.navigate(['./sez']);
   }
 }

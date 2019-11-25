@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule, NbCardModule,NbDatepickerModule, NbInputModule,NbIconModule, NbButtonModule } from '@nebular/theme';
+import { NbMenuModule, NbCardModule, NbDatepickerModule, NbInputModule, NbIconModule, NbButtonModule } from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
 import { SezComponent } from './sez.component';
 import { UsersComponent } from './users/users.component';
 import { SezRoutingModule } from './sez-routing.module';
-import { MiscellaneousModule } from '../pages/miscellaneous/miscellaneous.module';
+// import { MiscellaneousModule } from '../pages/miscellaneous/miscellaneous.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { CitizenComponent } from './citizen/citizen.component';
 import { MembersYearlyContriComponent } from './members-yearly-contri/members-yearly-contri.component';
@@ -15,6 +15,7 @@ import { AsharaContriComponent } from './ashara-contri/ashara-contri.component';
 import { BankComponent } from './bank/bank.component';
 import { ReportsComponent } from './reports/reports.component';
 import { SezDatepickerComponent } from './sez-datepicker/sez-datepicker.component';
+import { ElectronService } from 'ngx-electron';
 // import { SmartTableComponent } from '../pages/tables/smart-table/smart-table.component';
 
 @NgModule({
@@ -22,7 +23,7 @@ import { SezDatepickerComponent } from './sez-datepicker/sez-datepicker.componen
         SezRoutingModule,
         ThemeModule,
         NbMenuModule,
-        MiscellaneousModule,
+        // MiscellaneousModule,
         NbInputModule,
         Ng2SmartTableModule,
         NbCardModule,
@@ -45,6 +46,9 @@ import { SezDatepickerComponent } from './sez-datepicker/sez-datepicker.componen
         BankComponent,
         ReportsComponent,
         SezDatepickerComponent
+    ],
+    providers: [
+        ElectronService
     ]
 })
 export class SezModule {
