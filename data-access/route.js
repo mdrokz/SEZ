@@ -2,6 +2,7 @@ const userCtrl = require("./user.controller");
 const citizenCtrl = require('./citizen.controller');
 const ycontriCtrl = require("./yearly-contri.controller");
 const asharacontriCtrl = require('./ashara-contri.controller');
+const dcontriCtrl = require("./darees-contri.controller");
 
 
 var route = {
@@ -61,6 +62,10 @@ var route = {
           break;
         case "asharacontri/deleteUser":
           asharacontriCtrl.deleteUser(request, resolve, reject)
+          break;
+
+          case "dareescontri/addUser":
+          dcontriCtrl.addUser(request, resolve, reject);
           break;
       }
     });

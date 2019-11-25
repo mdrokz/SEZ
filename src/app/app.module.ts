@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
+
 import {
   NbChatModule,
   NbDatepickerModule,
