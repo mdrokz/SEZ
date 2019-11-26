@@ -45,6 +45,7 @@ import { SezDatepickerComponent } from './sez/sez-datepicker/sez-datepicker.comp
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ElectronAppService } from './services/electron.service';
 import { ElectronService } from 'ngx-electron';
+import { SezSmartTableComponent } from './shared/components/smart-table/smart-table/smart-table.component';
 
 
 const sezComponents = [
@@ -58,7 +59,8 @@ const sezComponents = [
   AsharaContriComponent,
   BankComponent,
   ReportsComponent,
-  SezDatepickerComponent
+  SezDatepickerComponent,
+  SezSmartTableComponent
 ]
 
 @NgModule({

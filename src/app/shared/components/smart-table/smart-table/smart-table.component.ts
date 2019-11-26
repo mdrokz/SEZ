@@ -6,7 +6,7 @@ import { LocalDataSource } from 'ng2-smart-table';
   templateUrl: './smart-table.component.html',
   styleUrls: ['./smart-table.component.scss']
 })
-export class SmartTableComponent implements OnInit {
+export class SezSmartTableComponent implements OnInit {
 
   @Input('settings') settings: any
   @Input('data') data: any
