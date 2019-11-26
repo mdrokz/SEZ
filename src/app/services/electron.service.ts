@@ -5,7 +5,7 @@ import * as fs from "fs";
 @Injectable({
   providedIn: "root"
 })
-export class ElectronService {
+export class ElectronAppService {
   ipcRenderer: typeof ipcRenderer;
   webFrame: typeof webFrame;
   remote: typeof remote;
