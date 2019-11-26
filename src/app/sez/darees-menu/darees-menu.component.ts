@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
+import { IpcService } from 'src/app/services/ipc.service';
 
 @Component({
   selector: 'app-darees-menu',
@@ -7,14 +8,14 @@ import { LocalDataSource } from 'ng2-smart-table';
   styleUrls: ['./darees-menu.component.scss']
 })
 export class DareesMenuComponent implements OnInit {
-  boo = false;
-  settings = {
+  IsAdding = false;
+  settingsAdd = {
     // actions: false,
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
-      //confirmCreate: true
+      confirmCreate: true
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
@@ -42,13 +43,13 @@ export class DareesMenuComponent implements OnInit {
       },
     },
   };
-  settings2 = {
+  settingsView = {
     actions: false,
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
-      //confirmCreate: true
+      // confirmCreate: true
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
@@ -83,35 +84,105 @@ export class DareesMenuComponent implements OnInit {
     },
   };
 
-  userData: any = {};
-
+  userData: any = [];
+  masterMenu: any = {};
+  menuData: any;
   source: LocalDataSource = new LocalDataSource();
-  constructor() { }
+  constructor(private ipc: IpcService) { }
+
+  createConfirm(event) {
+    this.userData.push(event.newData);
+    event.confirm.resolve();
+  }
 
   ngOnInit() {
+    this.ipc.send("dareesmenu/getAllMenuData", "getAllMenuData", null).then(res => {
+      this.menuData = res.data;
+      console.log(res);
+    })
   }
 
   show() {
-    this.boo = !this.boo;
+    this.IsAdding = !this.IsAdding;
   }
 
   edit(event) {
-    console.log(this.userData);
-    // this.ipc.send("asharacontri/editUser", "editUser", event.newData).then(res => {
-    //   console.log(res);
-    //   event.confirm.resolve();
-    // });
+    console.log(event);
+    if (this.masterMenu.menuData) {
+      this.masterMenu.menuData = event.newData;
+      this.masterMenu.type = "edit";
+      event.confirm.resolve();
+    }
+  }
+
+  editData(data) {
+    this.IsAdding = true;
+    this.masterMenu = data;
+    data.menuData.forEach(x => {
+      this.userData.push(x);
+    })
+    this.source.load(this.userData);
+    console.log(data);
+  }
+
+  deleteData(data) {
+    this.IsAdding = true;
+    this.masterMenu = data;
+    data.menuData.forEach(x => {
+      this.userData.push(x);
+    })
+    this.source.load(this.userData);
+    console.log(data);
   }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      // this.ipc.send("asharacontri/deleteUser", "deleteUser", event.data).then(res => {
-      //   console.log(res);
-      // })
-      event.confirm.resolve();
+      console.log(event);
+      if (this.masterMenu.menuData) {
+        this.masterMenu.menuData = event.data;
+        this.masterMenu.type = "delete";
+        event.confirm.resolve();
+      }
     } else {
       event.confirm.reject();
     }
+  }
+
+  save() {
+    console.log(this.masterMenu);
+    debugger;
+    if (!this.masterMenu.menuData) {
+      this.ipc.send("dareesmenu/addMenuMaster", "addMenuMaster", { masterMenu: this.masterMenu, menuDetails: this.userData }).then(res => {
+        this.masterMenu = {};
+        this.userData = [];
+        this.source.load(this.userData);
+        this.IsAdding = false;
+        console.log(res);
+      })
+    } else {
+      if (!this.masterMenu.menuData.length) {
+        if (this.masterMenu.type != "delete") {
+          this.ipc.send("dareesmenu/addMenuMaster", "addMenuMaster", this.masterMenu).then(res => {
+            this.masterMenu = {};
+            this.userData = [];
+            this.source.load(this.userData);
+            this.IsAdding = false;
+            console.log(res);
+          });
+        } else {
+          this.ipc.send("dareesmenu/deleteUser", "deleteUser", this.masterMenu).then(res => {
+            this.masterMenu = {};
+            this.userData = [];
+            this.source.load(this.userData);
+            this.IsAdding = false;
+            console.log(res);
+          })
+        }
+      }
+    }
+  }
+  cancel() {
+    this.masterMenu = {};
   }
 
 }

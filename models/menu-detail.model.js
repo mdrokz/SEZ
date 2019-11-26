@@ -7,13 +7,13 @@ var menuDetailSchema = new Schema({
   MenuMasterId: {
     type: Schema.Types.ObjectId
   },
-  Sr: {
+  SR: {
     type: String
   },
   Item: {
     type: String
   },
-  Qty: {
+  QTY: {
     type: String
   }
 });
