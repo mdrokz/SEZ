@@ -7,7 +7,7 @@ var menuMasterSchema = new Schema({
   Date: {
     type: Date
   },
-  peopleCount: {
+  PeopleCount: {
     type: String
   },
   ThaalCount: {

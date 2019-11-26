@@ -15,6 +15,8 @@ import { AsharaContriComponent } from './ashara-contri/ashara-contri.component';
 import { BankComponent } from './bank/bank.component';
 import { ReportsComponent } from './reports/reports.component';
 import { SezDatepickerComponent } from './sez-datepicker/sez-datepicker.component';
+import { FormsModule } from '@angular/forms';
+import { SmartTableComponent } from '../shared/components/smart-table/smart-table/smart-table.component';
 // import { SmartTableComponent } from '../pages/tables/smart-table/smart-table.component';
 
 @NgModule({
@@ -28,7 +30,8 @@ import { SezDatepickerComponent } from './sez-datepicker/sez-datepicker.componen
         NbCardModule,
         NbDatepickerModule,
         NbButtonModule,
-        NbIconModule
+        NbIconModule,
+        FormsModule
     ],
     entryComponents: [
         SezDatepickerComponent
@@ -44,7 +47,8 @@ import { SezDatepickerComponent } from './sez-datepicker/sez-datepicker.componen
         AsharaContriComponent,
         BankComponent,
         ReportsComponent,
-        SezDatepickerComponent
+        SezDatepickerComponent,
+        SmartTableComponent
     ]
 })
 export class SezModule {
