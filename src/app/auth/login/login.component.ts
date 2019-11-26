@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(private ipc: IpcService, private router: Router) { }
 
   ngOnInit() {
+    this.user.username = "mdrokz";
+    this.user.password = "123";
   }
   login(form) {
     if (form.valid) {

@@ -77,6 +77,10 @@ class ElectronWindow {
   private createBrowserWindow(x: number = 0, y: number = 0): BrowserWindow {
     return new BrowserWindow({
       title: this.title,
+      webPreferences: {
+        nodeIntegration: true,
+        backgroundThrottling: false
+      },
       fullscreen: true,
       minimizable: false,
       maximizable: false,

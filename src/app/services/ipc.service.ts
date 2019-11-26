@@ -29,10 +29,10 @@ export class IpcService {
   send(path: string, listener: string, data: any) {
     return new Promise<any>((resolve, reject) => {
       console.log(this.electron);
-      // this.electron.ipcRenderer.once(listener, (event, arg) => {
-      //   resolve(arg);
-      // });
-      // this.electron.ipcRenderer.send("api", { path: path, listener: listener, data: data });
+      this.electron.ipcRenderer.once(listener, (event, arg) => {
+        resolve(arg);
+      });
+      this.electron.ipcRenderer.send("api", { path: path, listener: listener, data: data });
     });
   }
 
@@ -57,10 +57,10 @@ export class IpcService {
 
   checkPath() {
     return new Promise<any>((resolve, reject) => {
-      // this.electron.ipcRenderer.once("response", (event, arg) => {
-      //   resolve(arg);
-      // })
-      // this.electron.ipcRenderer.send("currentPath");
+      this.electron.ipcRenderer.once("response", (event, arg) => {
+        resolve(arg);
+      })
+      this.electron.ipcRenderer.send("currentPath");
     });
   }
 

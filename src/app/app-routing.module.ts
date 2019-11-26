@@ -110,8 +110,8 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'sez', pathMatch: 'full' },
-  { path: '**', redirectTo: 'sez' }
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'auth/login' }
 ];
 
 
