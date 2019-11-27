@@ -10,7 +10,7 @@ var userSchema = new Schema({
   username: {
     type: String
   },
-  password: {
+  Password: {
     type: String
   },
   Name: {
@@ -38,6 +38,6 @@ var userSchema = new Schema({
 });
 
 
-// userSchema.plugin(Umongo);
+userSchema.plugin(Umongo);
 
 module.exports = mongoose.model('users', userSchema);

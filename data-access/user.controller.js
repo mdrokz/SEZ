@@ -1,12 +1,35 @@
 var userModel = require('../models/user.model');
+var userRoleModel = require('../models/user-roles.model');
+var roleModel = require('../models/roles.model');
 var ObjectId = require('mongoose').Types.ObjectId;
 var user = {
   addUser: function (req, res, rej) {
+    req.data.username = req.data.Name;
     var user = new userModel(req.data);
+    console.log(req.data)
     user.save(function (err, product) {
       if (err) {
         rej(err);
       } else {
+        roleModel.findOne({
+          role: "member"
+        }, (err, res) => {
+          if (err) {
+            rej(err);
+          } else {
+            var userRole = new userRoleModel({
+              userId: product._id,
+              roleId: res._id
+            })
+            userRole.save(function (err, product) {
+              if (err) {
+                rej(err)
+              } else {
+                console.log(product)
+              }
+            });
+          }
+        })
         res(product);
       }
     });

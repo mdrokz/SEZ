@@ -52,6 +52,10 @@ export class UsersComponent implements OnInit {
         title: 'Age',
         type: 'number',
       },
+      Password: {
+        title: 'Password',
+        type: 'string'
+      },
       Title: {
         title: 'Title',
         type: 'string',
@@ -81,11 +85,13 @@ export class UsersComponent implements OnInit {
   }
 
   add(event) {
+    if(event.newData.Name && event.newData.ITS && event.newData.Mobile) {
     this.ipc.send("user/addUser", "addUser", event.newData).then(res => {
       console.log(res);
       this.ipc.send("user/getAllUsers", "getAllUsers", null).then(result => this.source.load(result.data));
       event.confirm.resolve();
     });
+  }
   }
 
   edit(event) {
