@@ -12,7 +12,8 @@ var menuMasterSchema = new Schema({
   },
   ThaalCount: {
     type: String
-  }
+  },
+  timestamp: true
 });
 
 

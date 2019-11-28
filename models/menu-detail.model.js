@@ -15,7 +15,8 @@ var menuDetailSchema = new Schema({
   },
   QTY: {
     type: String
-  }
+  },
+  timestamp: true
 });
 
 

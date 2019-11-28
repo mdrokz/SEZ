@@ -15,7 +15,8 @@ var asharaContriSchema = new Schema({
   },
   Amount: {
     type: String
-  }
+  },
+  timestamp: true
 });
 
 

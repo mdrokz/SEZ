@@ -3,18 +3,18 @@ var Schema = mongoose.Schema;
 var Umongo = require('mongoose-unique-validator');
 
 
-var userSchema = new Schema({
+var userRoleSchema = new Schema({
     userId: {
         type: Schema.Types.ObjectId
     },
-    role: {
-        type: String
+    roleId: {
+        type: Schema.Types.ObjectId
     },
     timestamp: true
 });
 
 
-userSchema.plugin(Umongo);
+userRoleSchema.plugin(Umongo);
 
 
-module.exports = mongoose.model('roles',userSchema);
+module.exports = mongoose.model('userRoles',userRoleSchema);

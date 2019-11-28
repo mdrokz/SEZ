@@ -18,7 +18,8 @@ var citizenSchema = new Schema({
   },
   Mobile: {
     type: String
-  }
+  },
+  timestamp: true
 });
 
 

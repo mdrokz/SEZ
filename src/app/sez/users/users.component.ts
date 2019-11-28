@@ -39,6 +39,7 @@ export class UsersComponent implements OnInit {
       Name: {
         title: 'Name',
         type: 'string',
+        class: 'error'
       },
       ITS: {
         title: 'ITS#',
