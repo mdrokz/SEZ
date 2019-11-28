@@ -34,7 +34,8 @@ var userSchema = new Schema({
   SpecialSkills: {
     type: String
   }
-
+}, {
+  timestamps: true
 });
 
 

@@ -34,8 +34,8 @@ var yearlycontriSchema = new Schema({
   //   Mobile: {
   //     type: String
   //   },
-  timestamp: true
-
+}, {
+  timestamps: true
 });
 
 
