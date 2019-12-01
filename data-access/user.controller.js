@@ -51,12 +51,15 @@ var user = {
   login: function (req, res, rej) {
     if (Object.keys(req.data).length != 0) {
       console.log("it went in wtf");
+      console.log(req.data)
       userModel.findOne(req.data, function (err, product) {
         if (err) {
           rej(err);
         } else {
+          if(product) {
           console.log(product);
           res(product._doc);
+          }
         }
       });
     } else {

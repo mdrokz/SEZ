@@ -1,5 +1,5 @@
 {
-  "name": "electron-angular-quickstart",
+  "name": "SEZ",
   "version": "1.2.2",
   "main": "main.js",
   "scripts": {
@@ -19,58 +19,29 @@
     "electron:run": "wait-on main.js && electron . --serve --console --development",
     "electron:exit": "taskkill /IM electron.exe /F",
     "electron:watch": "concurrently --kill-others \"npm run electron:run\"",
-    "electron:watch2": "concurrently --kill-others \"npm run electron:tsc \"  \"npm run electron:run\""
+    "electron:watch2": "concurrently --kill-others \"npm run electron:tsc \"  \"npm run electron:run\"",
+    "electron-pack": "electron-builder --dir",
+    "electron-build": "electron-builder"
   },
   "build": {
-    "asar": true,
-    "productName": "Electron Angular Quickstart 1.2.2",
-    "appId": "com.electron.electron-angular-quickstart",
-    "copyright": "Mark Anthony Ignacio",
-    "publish": {
-      "provider": "s3",
-      "bucket": "com.electron.electron-angular-quickstart",
-      "path": "/updates"
+    "productName": "SEZ",
+    "appId": "com.shabab.sez",
+    "win": {
+      "target": "portable",
+      "icon": "build/icon.ico"
     },
     "files": [
+      "*.js",
       "./main.js",
-      "dist"
-    ],
-    "directories": {
-      "output": "build"
-    },
-    "mac": {
-      "category": "public.music.electron-angular-quickstart"
-    },
-    "nsis": {
-      "createDesktopShortcut": "always",
-      "createStartMenuShortcut": true,
-      "installerIcon": "./src/assets/images/icon.ico",
-      "uninstallerIcon": "./src/assets/images/icon.ico",
-      "uninstallDisplayName": "Electron Angular Quickstart 1.2.2"
-    },
-    "win": {
-      "target": [
-        "nsis"
-      ],
-      "icon": "./src/assets/images/icon.ico",
-      "publish": {
-        "provider": "s3",
-        "bucket": "com.electron.electron-angular-quickstart",
-        "path": "/updates"
-      }
-    },
-    "linux": {
-      "category": "Music",
-      "icon": "./src/assets/images/icon.ico",
-      "target": [
-        "AppImage",
-        "deb"
-      ]
-    }
+      "dist",
+      "data-access",
+      "models",
+      "MongoDB"
+    ]
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Mackignacio/electron-angular-quickstart.git"
+    "url": "git@github.com:mdrokz/SEZ.git"
   },
   "private": true,
   "dependencies": {
@@ -86,6 +57,8 @@
     "core-js": "^2.5.4",
     "eva-icons": "^1.1.1",
     "jquery": "^3.4.1",
+    "mongoose": "^5.7.12",
+    "mongoose-unique-validator": "^2.0.3",
     "nebular-icons": "^1.1.0",
     "ng2-completer": "^3.0.3",
     "ng2-smart-table": "^1.5.0",
@@ -125,8 +98,6 @@
     "karma-coverage-istanbul-reporter": "~2.0.0",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "mongoose": "^5.7.12",
-    "mongoose-unique-validator": "^2.0.3",
     "npm-run-all": "^4.1.5",
     "protractor": "^5.4.1",
     "ts-node": "~5.0.1",

@@ -157,6 +157,10 @@ export class DareesMenuComponent implements OnInit {
         this.userData = [];
         this.source.load(this.userData);
         this.IsAdding = false;
+        this.ipc.send("dareesmenu/getAllMenuData", "getAllMenuData", null).then(res => {
+          this.menuData = res.data;
+          console.log(res);
+        })
         console.log(res);
       })
     } else {
@@ -167,6 +171,10 @@ export class DareesMenuComponent implements OnInit {
             this.userData = [];
             this.source.load(this.userData);
             this.IsAdding = false;
+            this.ipc.send("dareesmenu/getAllMenuData", "getAllMenuData", null).then(res => {
+              this.menuData = res.data;
+              console.log(res);
+            })
             console.log(res);
           });
         } else {
@@ -175,6 +183,10 @@ export class DareesMenuComponent implements OnInit {
             this.userData = [];
             this.source.load(this.userData);
             this.IsAdding = false;
+            this.ipc.send("dareesmenu/getAllMenuData", "getAllMenuData", null).then(res => {
+              this.menuData = res.data;
+              console.log(res);
+            })
             console.log(res);
           })
         }

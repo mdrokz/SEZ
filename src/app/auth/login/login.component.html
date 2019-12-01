@@ -38,9 +38,9 @@
       <label class="label" for="input-password">Password:</label>
       <a class="forgot-password caption-2" routerLink="../request-password">Forgot Password?</a>
     </span>
-    <input nbInput fullWidth [(ngModel)]="user.password" #password="ngModel" name="password" type="password"
+    <input nbInput fullWidth [(ngModel)]="user.Password" #Password="ngModel" name="Password" type="password"
       id="input-password" placeholder="Password" fieldSize="large"
-      [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''">
+      [status]="Password.dirty ? (Password.invalid  ? 'danger' : 'success') : ''">
     <!-- <ng-container *ngIf="password.invalid && password.touched ">
       <p class="caption status-danger" *ngIf="password.errors?.required">
         Password is required!
