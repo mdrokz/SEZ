@@ -16,11 +16,15 @@ export class LoginComponent implements OnInit {
   messages: string[];
   submitted: boolean;
   rememberMe: boolean;
-  constructor(private ipc: IpcService, private router: Router) { }
+
+  constructor(
+    private ipc: IpcService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.user.username = "mdrokz";
-    this.user.password = "123";
+    // this.user.username = "mdrokz";
+    // this.user.password = "123";
   }
   login(form) {
     if (form.valid) {
