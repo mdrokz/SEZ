@@ -4,6 +4,7 @@ const ycontriCtrl = require("./yearly-contri.controller");
 const asharacontriCtrl = require('./ashara-contri.controller');
 const dareesMenuCtrl = require('./darees-menu.controller');
 const dcontriCtrl = require("./darees-contri.controller");
+const dvoucherCtrl = require("./darees-voucher.controller");
 
 var route = {
   parse: (request) => {
@@ -77,8 +78,12 @@ var route = {
           dareesMenuCtrl.deleteUser(request, resolve, reject)
           break;
 
-          case "dareescontri/addUser":
+        case "dareescontri/addUser":
           dcontriCtrl.addUser(request, resolve, reject);
+          break;
+
+        case "dareesvoucher/addUser":
+          dvoucherCtrl.addUser(request, resolve, reject);
           break;
       }
     });
