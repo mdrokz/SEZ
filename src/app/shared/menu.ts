@@ -38,11 +38,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/sez/ashara-contri',
     },
     {
-        title: 'Statement Cash // Bank',
-        icon: 'home-outline',
-        link: '/sez/bank'
-    },
-    {
         title: 'Reports',
         icon: 'layout-outline',
         children: []
