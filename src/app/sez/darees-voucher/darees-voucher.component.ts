@@ -38,53 +38,83 @@ export class DareesVoucherComponent {
           {
             table: {
               widths: [window],
-              body: [[{
-                stack: [
+              body: [
+                [
                   {
-                    text: " Shabab ul Eid-iz Zahabi, Kalimi Mohalla ,Ratlam",
-                    alignment: "center",
-                    bold: "true",
-                    decoration: "underline",
-                  },
-                  {
-                    text: " Expense Voucher",
-                    alignment: "center",
-                    margin: [0, 0, 0, 50],
-                    bold: "true"
-                  },
-                  {
-                    text: "Date :  " + this.date,
-                    alignment: "right",
-                    margin: [0, 0, 0, 50]
-                  },
-                  {
-                    text: "Paid To : " + this.user.Reciever,
-                    margin: [0, 0, 0, 30]
-                  },
-                  {
-                    text: "Amount Of :  " + this.convertNumberToWords(this.user.Amount),
-                    margin: [0, 0, 0, 30]
-                  },
-                  {
-                    text: "Against : " + this.user.Against,
-                    margin: [0, 0, 0, 30]
-                  },
+                    stack: [
+                      {
+                        text: " Shabab ul Eid-iz Zahabi, Kalimi Mohalla ,Ratlam",
+                        alignment: "center",
+                        bold: "true",
+                        decoration: "underline"
+                      },
+                      {
+                        text: " Expense Voucher",
+                        alignment: "center",
+                        margin: [0, 0, 0, 50],
+                        bold: "true",
+                        decoration: "underline"
+                      },
+                      {
+                        text: "Date :  " + this.date,
+                        alignment: "right",
+                        decoration: "underline",
+                        margin: [0, 0, 0, 50]
+                      },
+                      {
+                        text: "Paid To : " + this.user.Reciever,
+                        margin: [0, 0, 0, 30]
+                      },
+                      {
+                        text: "Amount Of :  " + this.convertNumberToWords(this.user.Amount),
+                        margin: [0, 0, 0, 30]
+                      },
+                      {
 
-                  {
-                    table: {
-                      body: [[{
-                        stack: [
-                          {
-                            text: "Rs. : " + this.user.Amount + " /- ",
-                            border: "true"
-                          }
-                        ]
-                      }]]
-                    },
-                    text: "Reciever's Name"
-                  }
+                        text: "Against : " + this.user.Against,
+                        margin: [0, 0, 0, 30]
+
+                      },
+                      {
+                        table: {
+                          body: [
+                            [
+                              {
+                                text: "Rs. " + this.user.Amount + " /-",
+                                decoration: "underline",
+                                decorationStyle: "dotted"
+                              }
+                            ]
+                          ]
+                        },
+
+                        table1: {
+                          body: [
+                            [
+                              {
+                                text: "Reciever's Name",
+                              }],
+                            [
+                              {
+                                text: this.user.Reciever,
+
+                                decoration: "underline",
+                                decorationStyle: "dotted",
+
+                              }
+                            ]
+                          ]
+                        }
+
+
+
+                      }
+
+                    ]
+
+                  },
                 ]
-              }]]
+              ]
             },
             layout: {
               // set custom borders size and color
