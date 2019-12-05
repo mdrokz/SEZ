@@ -77,37 +77,25 @@ export class DareesVoucherComponent {
                       },
                       {
                         table: {
+                          widths: [window],
                           body: [
                             [
                               {
-                                text: "Rs. " + this.user.Amount + " /-",
+                                text: "Rs. " + this.user.Amount + " /-                                                                                   Reciever's Name",
+                                margin: [0, 0, 40, 0]
+                              }
+                            ],
+                            [
+                              {
+                                text: "" + this.user.Reciever,
+                                margin: [290, 0, 0, 0],
                                 decoration: "underline",
                                 decorationStyle: "dotted"
+
                               }
                             ]
                           ]
                         },
-
-                        table1: {
-                          body: [
-                            [
-                              {
-                                text: "Reciever's Name",
-                              }],
-                            [
-                              {
-                                text: this.user.Reciever,
-
-                                decoration: "underline",
-                                decorationStyle: "dotted",
-
-                              }
-                            ]
-                          ]
-                        }
-
-
-
                       }
 
                     ]

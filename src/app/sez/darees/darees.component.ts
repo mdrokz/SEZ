@@ -44,13 +44,17 @@ export class DareesComponent {
                   {
                     text: " Shabab ul Eid-iz Zahabi, Kalimi Mohalla ,Ratlam",
                     alignment: "center",
-                    bold: "true"
+                    bold: "true",
+                    decoration: "underline",
+                    decorationStyle: "underline"
                   },
                   {
                     text: " 16 Raat Darees Voluntary Contribution Reciept",
                     alignment: "center",
                     margin: [0, 0, 0, 50],
-                    bold: "true"
+                    bold: "true",
+                    decoration: "underline",
+                    decorationStyle: "underline"
                   },
                   {
                     text: "Date :  " + this.date,
@@ -67,7 +71,7 @@ export class DareesComponent {
                   },
                   {
                     text: "Amount  :  " + this.convertNumberToWords(this.user.Amount),
-                    margin: [0, 0, 0, 40]
+                    margin: [0, 0, 0, 40],
                   },
                   {
                     table: {
@@ -75,7 +79,9 @@ export class DareesComponent {
                         stack: [
                           {
                             text: "Rs. : " + this.user.Amount + " /- ",
-                            border: "true"
+                            border: "true",
+                            decoration: "underline",
+                            decorationStyle: "dotted"
                           }
                         ]
                       }]]
