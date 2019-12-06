@@ -11,24 +11,24 @@
   <nb-card class>
     <nb-card-body class="text-right">
       Date:
-      <input [nbDatepicker]="datepicker" [(ngModel)]='user.Date'>
+      <input [nbDatepicker]="datepicker" [(ngModel)]='user.Date' required>
       <nb-datepicker #datepicker></nb-datepicker>
     </nb-card-body>
 
 
     <nb-card-body>
-      Payee:<input nbInput [(ngModel)]='user.Name' placeholder="Payee Name">
+      Payee:<input type="text"  nbInput [(ngModel)]='user.Name' placeholder="Payee Name" required>
     </nb-card-body>
 
 
 
     <nb-card-body>
-      SEZ Code: <input nbInput [(ngModel)]='user.SEZ' placeholder="SEZ Code">
+      SEZ Code: <input type="text" nbInput [(ngModel)]='user.SEZ' placeholder="SEZ Code" required> 
     </nb-card-body>
 
 
     <nb-card-body>
-      Amount: <input nbInput [(ngModel)]='user.Amount' placeholder="Amount">
+      Amount: <input type="number" nbInput [(ngModel)]='user.Amount' placeholder="Amount" required>
     </nb-card-body>
 
     <nb-card-body class='text-center'>

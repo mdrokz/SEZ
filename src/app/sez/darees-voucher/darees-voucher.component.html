@@ -15,15 +15,15 @@
 
 
     <nb-card-body>
-        Reciever:<input nbInput [(ngModel)]='user.Reciever' placeholder="Reciever">
+        Reciever:<input type="text" nbInput [(ngModel)]='user.Reciever' placeholder="Reciever" required>
     </nb-card-body>
 
     <nb-card-body>
-        Amount: <input nbInput [(ngModel)]='user.Amount' placeholder="Amount">
+        Amount: <input type="number" nbInput [(ngModel)]='user.Amount' placeholder="Amount" required>
     </nb-card-body>
 
     <nb-card-body>
-        Against: <input nbInput [(ngModel)]='user.Against' placeholder="Against">
+        Against: <input type="text" nbInput [(ngModel)]='user.Against' placeholder="Against" required>
     </nb-card-body>
 
 
